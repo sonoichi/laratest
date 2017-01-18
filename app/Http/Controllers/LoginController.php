@@ -52,9 +52,9 @@ class LoginController extends Controller
         //getList
         //$worker_list = DB::table('worker_list');
         //return view('charge.list', $worker_list);
-        $worker_list['worker_list'] = DB::table('worker_list')->get();
+        $worker_lists['worker_lists'] = DB::table('worker_list')->get();
         
-        return view('charge.list', $worker_list);
+        return view('charge.list', $worker_lists);
     }
 
     public function edit(){

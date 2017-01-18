@@ -2,9 +2,11 @@
 
 @section('content')
 <div class="container">
+  <div style="text-align:center;">
     <h1>ログイン</h1>
     <p>こちらは管理者向けログイン画面となります。</p>
     <p></p>
+  </div>
     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
         {{ csrf_field() }}
 
