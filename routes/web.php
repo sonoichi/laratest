@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::get('/charge/login','LoginController@charge');
 Route::get('/employee/login','LoginController@employee');
 
+Route::get('/index', 'LoginController@getList');
+
+
 //管理画面遷移
 Auth::routes();
 Route::get('/employee/confirm','LoginController@getlogin');
@@ -31,10 +34,11 @@ Route::get('/index', 'LoginController@getLogout');
 /********************************
 *********************************/
 //認証確認用: 以下デバッグ用確認項目
-// 認証ユーザの確認
+// 認証ユーザの確認/
+/*
     if(!Auth::check()){      
             print ('<p>現在認証されていません</p>');
-    }
+    }*/
 /********************************
 ********************************/
 

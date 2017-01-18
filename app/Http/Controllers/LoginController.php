@@ -16,7 +16,7 @@ class LoginController extends Controller
     //ログイン画面遷移
     public function charge()
     {
-        return view('charge.login');
+        return view('charge.list');
     }
     public function employee()
     {
@@ -43,6 +43,13 @@ class LoginController extends Controller
     public function getlogout()
     {
         //return view('employee.login');
+    }
+
+//
+    public function getList(){
+        $worker_list = DB::table('worker_list');
+        
+        return view('charge.list', $worker_list);
     }
 
  
