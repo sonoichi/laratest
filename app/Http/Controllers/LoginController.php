@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use DB;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -16,8 +17,9 @@ class LoginController extends Controller
     //ログイン画面遷移
     public function charge()
     {
-        return view('charge.list');
+        return view('charge.login');
     }
+    
     public function employee()
     {
         return view('employee.login');
@@ -47,10 +49,30 @@ class LoginController extends Controller
 
 //
     public function getList(){
-        $worker_list = DB::table('worker_list');
+        //getList
+        //$worker_list = DB::table('worker_list');
+        //return view('charge.list', $worker_list);
+        $worker_list['worker_list'] = DB::table('worker_list')->get();
         
         return view('charge.list', $worker_list);
     }
+
+    public function edit(){
+        return view('charge.edit');
+    }
+
+    public function getConfirm(){
+        $safety = Input::get('safety');
+        $comment = Input::get('comment');
+
+        $safeMember = new Member;
+        $safeMember->safety = $safety;
+        $safeMember->comment = $comment;
+
+        $safeMember->save();
+        return '保存しました';             
+    }
+    
 
  
 

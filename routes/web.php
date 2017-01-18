@@ -19,8 +19,10 @@ Route::get('/', function () {
 Route::get('/charge/login','LoginController@charge');
 Route::get('/employee/login','LoginController@employee');
 
-Route::get('/index', 'LoginController@getList');
+Route::get('/charge/list', 'LoginController@getList');
 
+// 編集画面
+Route::get('/charge/edhit','LoginController@edit');
 
 //管理画面遷移
 Auth::routes();

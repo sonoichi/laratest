@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-  <h2>安否確認：入力フォーム</h2>
-    <form class="form-horizontal" role="form" method="POST" action="getConfirm">
+  <h2>安否確認：編集画面</h2>
+    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
         {{ csrf_field() }}
 
         <div class="form-group{{ $errors->has('safety') ? ' has-error' : '' }}">
@@ -24,11 +24,12 @@
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">
                 <button type="submit" class="btn btn-primary">
-                    送信
+                    編集
                 </button>
             </div>
         </div>
     </form>
+    <a href="{{ action('LoginController@charge') }}">戻る</a>
 
 
 </div>
